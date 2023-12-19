@@ -1,9 +1,12 @@
-import { useEffect, useRef } from "react";
-import Plum from "./pages/001-plum";
-export default function App() {
-  return (
-    <div className="App">
-      <Plum />
-    </div>
-  );
+import { Plum } from "./pages/canvas/001-plum";
+
+function App() {
+
+    return (
+        <div className="App">
+            <Plum/>
+        </div>
+    );
 }
+
+export default App;
