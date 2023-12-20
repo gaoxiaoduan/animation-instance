@@ -1,11 +1,19 @@
 import { Plum } from "./pages/canvas/plum";
-import { Navbar } from "./components";
+import { Menu, Navbar } from "./components";
 
 function App() {
+
     return (
-        <div className="App">
+        <div className="min-h-screen">
             <Navbar/>
-            <Plum/>
+
+            <div className="w-full min-h-full flex flex-row">
+                <Menu/>
+                <main className="w-full">
+                    <Plum/>
+                </main>
+            </div>
+
         </div>
     );
 }
