@@ -47,6 +47,23 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.css$/,
+                type: "css",
+                use: [
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: {
+                                    tailwindcss: {},
+                                    autoprefixer: {}
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         ]
     },
