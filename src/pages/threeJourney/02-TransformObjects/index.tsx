@@ -86,7 +86,7 @@ export const TransformObjects: FC = () => {
 
 
     return <>
-        <h2>BasicScene</h2>
+        <h2>TransformObjects</h2>
         <canvas ref={webgl}></canvas>
     </>;
 };
