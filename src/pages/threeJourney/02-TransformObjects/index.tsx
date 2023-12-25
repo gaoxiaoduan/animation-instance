@@ -2,7 +2,11 @@ import { FC, useEffect, useRef } from "react";
 import * as THREE from "three";
 
 /**
- * 基础场景
+ * 变换对象
+ * 1.position
+ * 2.scale
+ * 3.rotation
+ * 4.组
  */
 export const TransformObjects: FC = () => {
     const webgl = useRef(null);

@@ -3,6 +3,14 @@ import * as THREE from "three";
 
 /**
  * 基础场景
+ * 1.创建场景
+ * 2.创建几何体
+ * 3.创建材质
+ * 4.创建网格模型
+ * 5.将网格模型添加到场景中
+ * 6.创建相机
+ * 7.创建渲染器
+ * 8.渲染
  */
 export const BasicScene: FC = () => {
     const webgl = useRef(null);
