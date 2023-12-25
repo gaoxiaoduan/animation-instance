@@ -2,7 +2,7 @@ import { createHashRouter } from "react-router-dom";
 import App from "../App";
 import { ErrorPage } from "../components";
 import { Plum } from "../pages/canvas/plum";
-import { Animations, BasicScene, TransformObjects } from "../pages/threeJourney";
+import { Animations, BasicScene, Cameras, TransformObjects } from "../pages/threeJourney";
 
 export const router = createHashRouter([
     {
@@ -29,6 +29,11 @@ export const router = createHashRouter([
                 path: "/Animations",
                 element: <Animations/>,
                 id: "Animations"
+            },
+            {
+                path: "/Cameras",
+                element: <Cameras/>,
+                id: "Cameras"
             }
         ]
     }

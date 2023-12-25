@@ -1,18 +1,16 @@
 import { FC, useEffect, useRef } from "react";
 import * as THREE from "three";
-// import gsap from "gsap";
+// @ts-ignore
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
 
 /**
- * 动画
- * 1.requestAnimationsFrame
- * 2.clock
- * 3.递增值
- * 5.相机的lookAt
- * 6.sin & cos
- * 7.GSAP - npm i gsap
+ * 相机
+ * 1. 透视相机
+ * 2. 正交相机
+ * 3. 控制器
  */
-export const Animations: FC = () => {
-
+export const Cameras: FC = () => {
     const webgl = useRef(null);
     // 创建场景
     const scene = new THREE.Scene();
@@ -38,11 +36,14 @@ export const Animations: FC = () => {
     };
 
     // 创建相机
+    // fov: 视野范围(垂直方向)
+    // aspect: 长宽比
+    // near: 近平面
+    // far: 远平面
     const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
-    camera.position.set(0, 1, 3);
+    camera.position.set(0, 0, 3);
     camera.lookAt(group.position);
     scene.add(camera);
-    const clock = new THREE.Clock();
 
     useEffect(() => {
         // 创建渲染器
@@ -54,23 +55,30 @@ export const Animations: FC = () => {
         renderer.setSize(sizes.width, sizes.height);
         renderer.render(scene, camera);
 
-        // gsap.to(group.position, {
-        //     duration: 1, // 动画持续时间
-        //     delay: 1, // 延迟时间
-        //     x: 2, // 动画结束时的值
+
+        // 鼠标移动，控制相机位置
+        // const cursor = {
+        //     x: 0,
+        //     y: 0,
+        // };
+        // canvas.addEventListener("mousemove", (event) => {
+        //     // 将鼠标移动范围转换成 [-0.5,0.5]
+        //     cursor.x = event.offsetX / sizes.width - 0.5;
+        //     cursor.y = -(event.offsetY / sizes.height - 0.5);
         // });
 
+        // 控制器
+        const controls = new OrbitControls(camera, canvas);
+        controls.enableDamping = true; // 阻尼效果
+
         const tick = () => {
-            // 经过的时间-秒 -> 递增值
-            const elapsedTime = clock.getElapsedTime();
+            // camera.position.x = Math.sin(cursor.x * Math.PI * 2) * 2;
+            // camera.position.z = Math.cos(cursor.x * Math.PI * 2) * 2;
+            // camera.position.y = cursor.y * 3;
+            // camera.lookAt(group.position);
 
-            // group.position.y = Math.sin(elapsedTime);
-            // group.position.x = Math.cos(elapsedTime);
-
-            camera.position.y = Math.sin(elapsedTime);
-            camera.position.x = Math.cos(elapsedTime);
-            camera.lookAt(group.position);
-
+            // 更新控制器
+            controls.update();
 
             renderer.render(scene, camera);
             requestAnimationFrame(tick);
@@ -78,8 +86,9 @@ export const Animations: FC = () => {
         requestAnimationFrame(tick);
     });
 
+
     return <>
-        <h2>Animations</h2>
+        <h2>Cameras</h2>
         <canvas ref={webgl}></canvas>
     </>;
 };
