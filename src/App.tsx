@@ -3,15 +3,20 @@ import { Outlet, useNavigation } from "react-router-dom";
 
 function App() {
     const navigation = useNavigation();
+
+    const loadedClassNames = "flex-1 flex flex-col overflow-hidden";
+
     return (
-        <div className="min-h-screen">
+        <div className="flex flex-col h-screen">
             <Navbar/>
 
-            <div className="w-full min-h-full flex flex-row">
+            <div
+                className="flex-1 flex flex-row"
+            >
                 <Menu/>
                 <main
                     className={
-                        navigation.state === "loading" ? "w-1/4 loading" : "w-full"
+                        navigation.state === "loading" ? "w-1/4 loading" : loadedClassNames
                     }
                 >
                     <Outlet/>
