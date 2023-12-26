@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 
-export const useTheme = () => {
-    const [theme, setTheme] = useState("light");
+type themeType = "light" | "dark";
 
-    // 从 localStorage 中获取主题
-    useEffect(() => {
+export const useTheme = () => {
+    const [theme, setTheme] = useState(() => {
         const localTheme = window.localStorage.getItem("theme");
         if (localTheme) {
-            setTheme(localTheme);
-            document.documentElement.setAttribute("data-theme", localTheme);
+            return localTheme as themeType;
         }
-    }, []);
+        return "light";
+    });
+
 
     // 监听系统主题变化
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", theme);
+        window.localStorage.setItem("theme", theme);
+
         const handleColorSchemeChange = (e: MediaQueryListEvent) => {
             const newColorScheme = e.matches ? "dark" : "light";
             setTheme(newColorScheme);
