@@ -6,6 +6,7 @@ import {
     Animations,
     BasicScene,
     Cameras,
+    DebugUI,
     FullscreenAndResizing,
     Geometries,
     TransformObjects
@@ -51,6 +52,11 @@ export const router = createHashRouter([
                 path: "/Geometries",
                 element: <Geometries/>,
                 id: "Geometries"
+            },
+            {
+                path: "/DebugUI",
+                element: <DebugUI/>,
+                id: "DebugUI"
             }
         ]
     }
