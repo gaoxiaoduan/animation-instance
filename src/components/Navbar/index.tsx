@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { MaterialSymbolsLightLightModeOutline } from "../../assets/MaterialSymbolsLightLightModeOutline.tsx";
-import { PhGithubLogoLight } from "../../assets/PhGithubLogoLight.tsx";
+import { MaterialSymbolsLightLightModeOutline } from "../../assets/svg/MaterialSymbolsLightLightModeOutline.tsx";
+import { PhGithubLogoLight } from "../../assets/svg/PhGithubLogoLight.tsx";
 import { useTheme } from "../../hooks/useTheme.ts";
 
 export const Navbar: FC = () => {

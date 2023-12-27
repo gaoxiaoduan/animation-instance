@@ -1,3 +1,4 @@
+const path = require('path');
 const rspack = require("@rspack/core");
 const refreshPlugin = require("@rspack/plugin-react-refresh");
 const isDev = process.env.NODE_ENV === "development";
@@ -8,13 +9,25 @@ const isDev = process.env.NODE_ENV === "development";
 module.exports = {
     context: __dirname,
     entry: {
-        main: "./src/main.tsx"
+        main: "./src/main.tsx",
+    },
+    output: {
+        assetModuleFilename: '[path][name][ext]',
+    },
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, "./src")
+        }
     },
     module: {
         rules: [
             {
                 test: /\.svg$/,
                 type: "asset"
+            },
+            {
+                test: /\.(png|jpe?g|gif|webp)$/,
+                type: "asset/resource"
             },
             {
                 test: /\.(jsx?|tsx?)$/,
