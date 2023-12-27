@@ -2,7 +2,15 @@ import { createHashRouter } from "react-router-dom";
 import App from "../App";
 import { ErrorPage } from "../components";
 import { Plum } from "../pages/canvas/plum";
-import { Animations, BasicScene, Cameras, FullscreenAndResizing, TransformObjects } from "../pages/threeJourney";
+import {
+    Animations,
+    BasicScene,
+    Cameras,
+    DebugUI,
+    FullscreenAndResizing,
+    Geometries,
+    TransformObjects
+} from "../pages/threeJourney";
 
 export const router = createHashRouter([
     {
@@ -39,6 +47,16 @@ export const router = createHashRouter([
                 path: "/FullscreenAndResizing",
                 element: <FullscreenAndResizing/>,
                 id: "FullscreenAndResizing"
+            },
+            {
+                path: "/Geometries",
+                element: <Geometries/>,
+                id: "Geometries"
+            },
+            {
+                path: "/DebugUI",
+                element: <DebugUI/>,
+                id: "DebugUI"
             }
         ]
     }

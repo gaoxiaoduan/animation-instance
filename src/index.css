@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*tailwindcss 影响了dat.gui的样式*/
+div.dg.main input {
+    line-height: normal;
+}
