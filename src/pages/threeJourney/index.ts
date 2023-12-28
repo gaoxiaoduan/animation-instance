@@ -7,3 +7,4 @@ export * from "./06-Geometries";
 export * from "./07-DebugUI";
 export * from "./08-Textures";
 export * from "./09-Material";
+export * from "./10-3DText";

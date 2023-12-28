@@ -10,6 +10,7 @@ import {
     FullscreenAndResizing,
     Geometries,
     Material,
+    Text3D,
     Textures,
     TransformObjects
 } from "../pages/threeJourney";
@@ -69,6 +70,11 @@ export const router = createHashRouter([
                 path: "/Material",
                 element: <Material/>,
                 id: "Material"
+            },
+            {
+                path: "/Text3D",
+                element: <Text3D/>,
+                id: "Text3D"
             }
         ]
     }
