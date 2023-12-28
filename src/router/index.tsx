@@ -9,6 +9,7 @@ import {
     DebugUI,
     FullscreenAndResizing,
     Geometries,
+    Lights,
     Material,
     Text3D,
     Textures,
@@ -75,6 +76,11 @@ export const router = createHashRouter([
                 path: "/Text3D",
                 element: <Text3D/>,
                 id: "Text3D"
+            },
+            {
+                path: "/Lights",
+                element: <Lights/>,
+                id: "Lights"
             }
         ]
     }
