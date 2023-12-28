@@ -9,6 +9,7 @@ import {
     DebugUI,
     FullscreenAndResizing,
     Geometries,
+    Material,
     Textures,
     TransformObjects
 } from "../pages/threeJourney";
@@ -63,6 +64,11 @@ export const router = createHashRouter([
                 path: "/Textures",
                 element: <Textures/>,
                 id: "Textures"
+            },
+            {
+                path: "/Material",
+                element: <Material/>,
+                id: "Material"
             }
         ]
     }

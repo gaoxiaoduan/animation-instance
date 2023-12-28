@@ -21,8 +21,8 @@ dependencies:
     specifier: ^6.21.0
     version: 6.21.0(react-dom@18.2.0)(react@18.2.0)
   three:
-    specifier: ^0.159.0
-    version: 0.159.0
+    specifier: ^0.148.0
+    version: 0.148.0
 
 devDependencies:
   '@rspack/cli':
@@ -3163,8 +3163,8 @@ packages:
       any-promise: 1.3.0
     dev: true
 
-  /three@0.159.0:
-    resolution: {integrity: sha512-eCmhlLGbBgucuo4VEA9IO3Qpc7dh8Bd4VKzr7WfW4+8hMcIfoAVi1ev0pJYN9PTTsCslbcKgBwr2wNZ1EvLInA==}
+  /three@0.148.0:
+    resolution: {integrity: sha512-8uzVV+qhTPi0bOFs/3te3RW6hb3urL8jYEl6irjCWo/l6sr8MPNMcClFev/MMYeIxr0gmDcoXTy/8LXh/LXkfw==}
     dev: false
 
   /thunky@1.1.0:
