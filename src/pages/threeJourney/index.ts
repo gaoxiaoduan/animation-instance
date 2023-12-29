@@ -10,3 +10,4 @@ export * from "./09-Material";
 export * from "./10-3DText";
 export * from "./11-Lights";
 export * from "./12-Shadows";
+export * from "./13-HauntedHouse";

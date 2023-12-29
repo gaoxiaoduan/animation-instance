@@ -9,6 +9,7 @@ import {
     DebugUI,
     FullscreenAndResizing,
     Geometries,
+    HauntedHouse,
     Lights,
     Material,
     Shadows,
@@ -87,6 +88,11 @@ export const router = createHashRouter([
                 path: "/Shadows",
                 element: <Shadows/>,
                 id: "Shadows"
+            },
+            {
+                path: "/HauntedHouse",
+                element: <HauntedHouse/>,
+                id: "HauntedHouse"
             }
         ]
     }
