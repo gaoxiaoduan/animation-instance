@@ -11,6 +11,7 @@ import {
     Geometries,
     Lights,
     Material,
+    Shadows,
     Text3D,
     Textures,
     TransformObjects
@@ -81,6 +82,11 @@ export const router = createHashRouter([
                 path: "/Lights",
                 element: <Lights/>,
                 id: "Lights"
+            },
+            {
+                path: "/Shadows",
+                element: <Shadows/>,
+                id: "Shadows"
             }
         ]
     }
