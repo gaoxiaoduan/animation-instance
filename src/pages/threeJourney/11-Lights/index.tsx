@@ -178,7 +178,7 @@ export const Lights: FC = () => {
 
 
     return <>
-        <h2>3D Text</h2>
+        <h2>Lights</h2>
         <div className="flex-1 webgl_warp relative">
             <canvas className=".webgl" ref={webgl}></canvas>
         </div>
