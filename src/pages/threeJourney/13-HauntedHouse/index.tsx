@@ -83,7 +83,7 @@ export const HauntedHouse: FC = () => {
 
     // 辅助坐标系
     const axesHelper = new THREE.AxesHelper(3);
-    // axesHelper.visible = false;
+    axesHelper.visible = false;
     scene.add(axesHelper);
     gui.add(axesHelper, "visible").name("axesHelper");
 
