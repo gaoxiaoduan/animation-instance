@@ -8,6 +8,7 @@ import {
     Cameras,
     DebugUI,
     FullscreenAndResizing,
+    GalaxyGenerator,
     Geometries,
     HauntedHouse,
     Lights,
@@ -100,6 +101,12 @@ export const router = createHashRouter([
                 element: <Particles/>,
                 id: "Particles"
             },
+            {
+                path: "/GalaxyGenerator",
+                element: <GalaxyGenerator/>,
+                id: "GalaxyGenerator"
+            },
+
         ]
     }
 ]);
