@@ -8,10 +8,12 @@ import {
     Cameras,
     DebugUI,
     FullscreenAndResizing,
+    GalaxyGenerator,
     Geometries,
     HauntedHouse,
     Lights,
     Material,
+    Particles,
     Shadows,
     Text3D,
     Textures,
@@ -93,7 +95,18 @@ export const router = createHashRouter([
                 path: "/HauntedHouse",
                 element: <HauntedHouse/>,
                 id: "HauntedHouse"
-            }
+            },
+            {
+                path: "/Particles",
+                element: <Particles/>,
+                id: "Particles"
+            },
+            {
+                path: "/GalaxyGenerator",
+                element: <GalaxyGenerator/>,
+                id: "GalaxyGenerator"
+            },
+
         ]
     }
 ]);

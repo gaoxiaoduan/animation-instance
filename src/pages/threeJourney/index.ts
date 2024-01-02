@@ -11,3 +11,5 @@ export * from "./10-3DText";
 export * from "./11-Lights";
 export * from "./12-Shadows";
 export * from "./13-HauntedHouse";
+export * from "./14-Particles";
+export * from "./15-GalaxyGenerator";
