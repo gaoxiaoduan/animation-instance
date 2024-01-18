@@ -14,6 +14,7 @@ import {
     Lights,
     Material,
     Particles,
+    ScrollBasedAnimation,
     Shadows,
     Text3D,
     Textures,
@@ -106,7 +107,11 @@ export const router = createHashRouter([
                 element: <GalaxyGenerator/>,
                 id: "GalaxyGenerator"
             },
-
+            {
+                path: "/ScrollBasedAnimation",
+                element: <ScrollBasedAnimation/>,
+                id: "ScrollBasedAnimation"
+            },
         ]
     }
 ]);
