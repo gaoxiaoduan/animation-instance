@@ -7,10 +7,10 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 /**
  * 基础模版
  */
-export const baseThree: FC = () => {
-    /**
-     * TextureLoader
-     */
+export const BaseThree: FC = () => {
+    // /**
+    //  * 纹理加载器
+    //  */
     // const textureLoader = new THREE.TextureLoader();
 
 
@@ -22,7 +22,8 @@ export const baseThree: FC = () => {
     gui.domElement.style.top = "0";
     gui.domElement.style.right = "0";
 
-    const webgl = useRef(null);
+    const webgl = useRef<HTMLCanvasElement>(null);
+    const webglWarp = useRef<HTMLDivElement>(null);
 
     /**
      * 场景
@@ -57,56 +58,48 @@ export const baseThree: FC = () => {
     camera.position.set(3, 4, 5);
     scene.add(camera);
 
+    /**
+     * 渲染器
+     */
+    const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
 
+    /**
+     * 控制器
+     */
+    const controlsRef = useRef<OrbitControls | null>(null);
+
+
+    // 初始化
     useEffect(() => {
-        const webglWarp = document.querySelector(".webgl_warp") as HTMLDivElement;
-        webglWarp.appendChild(gui.domElement);
+        const webglWarpElement = webglWarp.current!;
+        webglWarpElement.appendChild(gui.domElement);
         // 更新渲染器尺寸
-        sizes.width = webglWarp.clientWidth;
-        sizes.height = webglWarp.clientHeight;
+        sizes.width = webglWarpElement.clientWidth;
+        sizes.height = webglWarpElement.clientHeight;
         // 更新相机
         camera.aspect = sizes.width / sizes.height;
         camera.updateProjectionMatrix();
 
+        const canvas = webgl.current!;
 
-        /**
-         * 渲染器
-         */
-        const canvas = webgl.current! as HTMLCanvasElement;
+        // 渲染器
         const renderer = new THREE.WebGLRenderer({
-            canvas
+            canvas,
         });
+
         renderer.setSize(sizes.width, sizes.height);
-        // 设置像素比 当像素比超过2，人眼分辨不出，但是会增加性能开销，所以取最小值
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
         renderer.render(scene, camera);
+        rendererRef.current = renderer;
 
-        // 控制器
-        const controls = new OrbitControls(camera, canvas);
-        controls.enableDamping = true; // 阻尼效果
-
-
-        /**
-         * 动画
-         */
-        // const clock = new THREE.Clock();
-        const tick = () => {
-            // const elapsedTime = clock.getElapsedTime();
-
-
-            // 更新控制器
-            controls.update();
-
-            renderer.render(scene, camera);
-            requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
+        controlsRef.current = new OrbitControls(camera, canvas);
+        controlsRef.current.enableDamping = true; // 阻尼效果
 
         const handleResize = () => {
             // 更新渲染器尺寸
-            sizes.width = webglWarp.clientWidth;
-            sizes.height = webglWarp.clientHeight;
+            sizes.width = webglWarpElement.clientWidth;
+            sizes.height = webglWarpElement.clientHeight;
             // 更新相机
             camera.aspect = sizes.width / sizes.height;
             camera.updateProjectionMatrix();
@@ -118,12 +111,27 @@ export const baseThree: FC = () => {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    });
+    }, []);
+
+
+    // /**
+    //  * 动画
+    //  */
+    // const clock = new THREE.Clock();
+    const tick = () => {
+        // const elapsedTime = clock.getElapsedTime();
+
+        // 更新控制器
+        controlsRef.current?.update();
+
+        rendererRef.current?.render(scene, camera);
+        requestAnimationFrame(tick);
+    };
+    tick();
 
 
     return <>
-        <h2>baseThree</h2>
-        <div className="flex-1 webgl_warp relative">
+        <div className="webgl_warp h-full relative" ref={webglWarp}>
             <canvas className=".webgl" ref={webgl}></canvas>
         </div>
     </>;
