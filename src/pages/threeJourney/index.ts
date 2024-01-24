@@ -15,3 +15,4 @@ export * from "./14-Particles";
 export * from "./15-GalaxyGenerator";
 export * from "./16-ScrollBasedAnimation";
 export * from "./17-Physics";
+export * from "./18-ImportedModels";
