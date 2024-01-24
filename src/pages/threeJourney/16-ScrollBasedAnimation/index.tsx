@@ -71,8 +71,8 @@ export const ScrollBasedAnimation: FC = () => {
     mesh2.position.x = -2;
     mesh3.position.x = 2;
 
-    mesh1.position.y = -objectsDistance * 0;
-    mesh2.position.y = -objectsDistance * 1;
+    mesh1.position.y = 0; // -objectsDistance * 0
+    mesh2.position.y = -objectsDistance; // -objectsDistance * 1
     mesh3.position.y = -objectsDistance * 2;
 
     scene.add(mesh1, mesh2, mesh3);
@@ -235,19 +235,17 @@ export const ScrollBasedAnimation: FC = () => {
 
 
     const sectionClassName = "flex items-center relative h-full z-10 text-yellow-400 text-[7vmin] px-[10%] odd:justify-end";
-    return <>
-        <div className="h-full relative bg-[#1e1a20] overflow-y-scroll" ref={webglWarp}>
-            <canvas className=".webgl fixed" ref={webgl}></canvas>
+    return <div className="h-full relative bg-[#1e1a20] overflow-y-scroll" ref={webglWarp}>
+        <canvas className=".webgl fixed" ref={webgl}></canvas>
 
-            <section className={sectionClassName}>
-                <h1>A circular shape</h1>
-            </section>
-            <section className={sectionClassName}>
-                <h2>A cone</h2>
-            </section>
-            <section className={sectionClassName}>
-                <h2>What's this?</h2>
-            </section>
-        </div>
-    </>;
+        <section className={sectionClassName}>
+            <h1>A circular shape</h1>
+        </section>
+        <section className={sectionClassName}>
+            <h2>A cone</h2>
+        </section>
+        <section className={sectionClassName}>
+            <h2>What's this?</h2>
+        </section>
+    </div>;
 };

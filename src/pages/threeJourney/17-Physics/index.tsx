@@ -342,9 +342,7 @@ export const Physics: FC = () => {
     tick();
 
 
-    return <>
-        <div className="webgl_warp h-full relative" ref={webglWarp}>
-            <canvas className=".webgl" ref={webgl}></canvas>
-        </div>
-    </>;
+    return <div className="webgl_warp h-full relative" ref={webglWarp}>
+        <canvas className=".webgl" ref={webgl}></canvas>
+    </div>;
 };
