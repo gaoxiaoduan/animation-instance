@@ -14,6 +14,7 @@ import {
     Lights,
     Material,
     Particles,
+    Physics,
     ScrollBasedAnimation,
     Shadows,
     Text3D,
@@ -111,6 +112,11 @@ export const router = createHashRouter([
                 path: "/ScrollBasedAnimation",
                 element: <ScrollBasedAnimation/>,
                 id: "ScrollBasedAnimation"
+            },
+            {
+                path: "/Physics",
+                element: <Physics/>,
+                id: "Physics"
             },
         ]
     }
