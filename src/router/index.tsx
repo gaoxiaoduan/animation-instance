@@ -11,6 +11,7 @@ import {
     GalaxyGenerator,
     Geometries,
     HauntedHouse,
+    ImportedModels,
     Lights,
     Material,
     Particles,
@@ -118,6 +119,12 @@ export const router = createHashRouter([
                 element: <Physics/>,
                 id: "Physics"
             },
+            {
+                path: "/ImportedModels",
+                element: <ImportedModels/>,
+                id: "ImportedModels"
+            },
+
         ]
     }
 ]);

@@ -30,7 +30,7 @@ module.exports = {
                 type: "asset/resource"
             },
             {
-                test: /\.mp3$/,
+                test: /\.(mp3|gltf|bin)$/,
                 type: "asset/resource"
             },
             {
