@@ -54,7 +54,7 @@ export const BaseThree: FC = () => {
     /**
      * 相机
      */
-    const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
+    const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
     camera.position.set(3, 4, 5);
     scene.add(camera);
 
